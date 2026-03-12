@@ -81,6 +81,7 @@
     @apply bg-black;
     color: hsl(var(--foreground));
     font-feature-settings: "rlig" 1, "calt" 1;
+    cursor: cell;
   }
 
   html {
