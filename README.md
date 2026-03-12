@@ -1,82 +1,81 @@
-## Nike Flow 🏃‍♂️👟
+# Test Project – Frontend Enhancements and Backend Authentication
 
-A sleek and modern **Nike** e-commerce website built with ⚛️ **React** and 🎨 **Tailwind CSS**.  
-This project showcases a fully **responsive** design, smooth ✨ animations, and a dark-themed UI inspired by Nike's iconic branding.  
-Deployed on ▲ **Vercel** for lightning-fast performance 🚀.
+This project includes both frontend UI improvements and the implementation of a backend authentication system.
 
----
+Frontend Changes:
+The following UI changes were implemented in the existing project:
+• Updated the product rating stars color to yellow.
+• Modified the product layout to display items in 3 columns instead of 4.
+• Changed the cursor style to a custom cursor instead of the default circular cursor.
+• Added a hover animation on products where the image zooms in and a light grey mask appears from top to bottom.
 
-## Features
+Backend Authentication:
+A backend authentication system was implemented using Node.js, Express, MongoDB Atlas, JWT, and bcrypt.
 
-- 🛍️ **E-commerce Functionality** - Product browsing, cart management, and category filtering
-- 🎨 **Dark Theme** - Modern dark mode design with gradient effects
-- ✨ **Smooth Animations** - Powered by Framer Motion and custom CSS animations
-- 📱 **Fully Responsive** - Optimized for all devices
-- 🎯 **Interactive UI** - Mouse follower effects and hover animations
-- 🗺️ **Contact Page** - Integrated Google Maps and contact form
+Features implemented:
+• User registration API
+• User login API
+• Password hashing using bcrypt for security
+• JWT token generation for authentication
+• Authentication middleware to protect routes
+• MongoDB Atlas database integration
 
----
+Backend Structure:
+src/backend/
+middleware/authMiddleware.js – JWT authentication middleware
+models/User.js – User schema for MongoDB
+routes/auth.js – Register and login API routes
+server.js – Express server configuration
 
-## Tech Stack
+Authentication API Endpoints:
 
-- **React** – Frontend library  
-- **Tailwind CSS** – Styling framework  
-- **Vite** – Development and build tool  
-- **Framer Motion** – Animation library
-- **React Router** – Navigation
-- **Vercel** – Deployment platform  
+Register User
+POST /api/auth/register
 
----
+Example request body:
+{
+"name": "User",
+"email": "user@email.com",
+"password": "123456"
+}
 
-## Installation
+Login User
+POST /api/auth/login
 
-```bash
-git clone https://github.com/davismiler/nike-flow.git
-cd nike-flow
+Example request body:
+{
+"email": "user@email.com",
+"password": "123456"
+}
+
+Example response:
+{
+"token": "JWT_TOKEN",
+"user": {
+"_id": "user_id",
+"name": "User",
+"email": "user@email.com"
+}
+}
+
+Tech Stack Used:
+Frontend: React, Tailwind CSS, JavaScript
+Backend: Node.js, Express, MongoDB Atlas, JWT, bcrypt
+
+Running the Project:
+
+Install frontend dependencies:
 npm install
+
+Run frontend:
 npm run dev
-```
 
-The application will be available at `http://localhost:5173`
+Run backend server:
+cd src/backend
+npm install
+node server.js
 
----
+Backend server runs on:
+http://localhost:5000
 
-## Usage
-
-- **Home Page** - Browse featured products with animated hero section
-- **Category Pages** - Filter products by Men's, Women's, and Kids categories
-- **Product Details** - View detailed product information with multiple images
-- **Shopping Cart** - Add/remove items and view cart totals
-- **Contact** - Get in touch via contact form or view location on map
-
----
-
-## Project Structure
-
-```
-nike-flow/
-├── src/
-│   ├── components/     # Reusable UI components
-│   ├── Pages/          # Page components
-│   ├── context/        # React Context for state management
-│   ├── Utils/          # Data and utilities
-│   └── assets/         # Images and static files
-├── public/             # Public assets
-└── package.json        # Dependencies
-```
-
----
-
-## Build
-
-```bash
-npm run build
-```
-
-This will create an optimized production build in the `dist` directory.
-
----
-
-## License
-
-This project is for educational purposes and portfolio showcase.
+Environment variables such as MongoDB URI and JWT secret are stored in the .env file and excluded from GitHub using .gitignore.
